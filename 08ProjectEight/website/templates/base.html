@@ -1,0 +1,24 @@
+{%load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vishal Agrahari</title>
+    <link rel="stylesheet" href="{% static 'css/basestyles.css'%}">
+</head>
+<body>
+<header><h1><a href="/">My Personal Blog</a></h1></header>
+<div class="container">
+  {%if user.is_authenticated%}
+  <p>you are logged in</p>
+  <p>hey there:{{user.username}},Howdy</p>
+  <p><a href="{% url 'logout' %}">logout</a></p>
+  {%else%}
+  <p>you are not logeed in</p>
+  <p>click here to  <a href="{% url 'login'%}">login</a></p>
+  {%endif%}
+    {%block content%}
+    {%endblock content%}
+</div>
+</body>
+</html>
